@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* -----------------------------------------------------------
+   1. MERGED THEME CONFIGURATION
+   ----------------------------------------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  /* Define Inter as the default sans font */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  /* Define Power Grotesk for the custom class */
+  --font-grotesk: 'Power Grotesk', sans-serif;
+  
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans); 
+  font-weight: 400;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
+* { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.2) transparent; }
+
+/* -----------------------------------------------------------
+   2. FONT DEFINITIONS
+   ----------------------------------------------------------- */
+
+/* Inter (Standard Text) */
+@font-face {
+  font-family: 'Inter'; 
+  src: url('/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2'); 
+  font-weight: 100 900; 
+  font-style: normal; 
+  font-display: swap; 
+}
+
+@font-face {
+  font-family: 'Inter'; 
+  src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2'); 
+  font-weight: 100 900; 
+  font-style: italic; 
+  font-display: swap; 
+}
+
+/* Power Grotesk (Display Text) - CLEANED UP */
+
+/* UltraBold -> Maps to weight 800 */
+@font-face {
+  font-family: 'Power Grotesk';
+  src: url('/fonts/PowerGrotesk-UltraBold.otf') format('opentype');
+  font-weight: 800; 
+  font-style: normal; /* Fixed: changed 'large' to 'normal' */
+  font-display: swap;
+}
+
+/* Heavy -> Maps to weight 900 */
+@font-face {
+  font-family: 'Power Grotesk';
+  src: url('/fonts/PowerGrotesk-Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* 3. UltraLight (Weight 200) */
+@font-face {
+  font-family: 'Power Grotesk';
+  src: url('/fonts/PowerGrotesk-UltraLight.otf') format('opentype');
+  
+  /* We map this to 200 (ExtraLight) and 100 (Thin) so both classes work */
+  font-weight: 100 200; 
+  font-style: normal;
+  font-display: swap;
+}
