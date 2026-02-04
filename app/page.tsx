@@ -8,11 +8,8 @@ import { MUSIC_STYLES } from '@/data';
 
 import { usePlayer } from '@/context/PlayerContext';
 
-import GlobalPlayer from '@/components/GlobalPlayer';
-
 import { useUI } from '@/context/UiContext'; // Import UI Context
 
-import ArtistHero from '@/components/ArtistHero'; // <--- Import it
 import { DashboardView } from '@/components/DashBoard/DashboardView';
 
 // --- StyleCard Component ---
@@ -76,7 +73,7 @@ export default function Home() {
           Reopen Content
 
         </button>
-        <GlobalPlayer />
+      
       </div>
 
     );
