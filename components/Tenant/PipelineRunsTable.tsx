@@ -1,7 +1,7 @@
 'use client'
 
 import { DataTable } from '@/components/Data/DataTable'
-
+  import type { ReactNode } from 'react'
 const COLUMNS = [
   { key: 'source', label: 'Source' },
   { key: 'status', label: 'Status' },
@@ -14,7 +14,10 @@ export function PipelineRunsTable({
   renderCell,
 }: {
   runs: any[]
-  renderCell: (value: any, key: string) => JSX.Element | string
+
+
+renderCell: (value: any, key: string) => ReactNode
+
 }) {
   return (
     <DataTable

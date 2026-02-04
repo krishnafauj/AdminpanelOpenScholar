@@ -63,7 +63,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-[100dvh] bg-white flex flex-col py-5 gap-6 border-r border-zinc-200 shrink-0 z-50 transition-[width] duration-300 ease-in-out ${isExpanded ? 'w-[240px]' : 'w-[84px]'
+      className={`h-dvh bg-white flex flex-col py-5 gap-6 border-r border-zinc-200 shrink-0 z-50 transition-[width] duration-300 ease-in-out ${isExpanded ? 'w-[240px]' : 'w-[84px]'
         }`}
     >
       {/* --- Header --- */}
