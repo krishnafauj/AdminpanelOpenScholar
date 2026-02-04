@@ -16,50 +16,60 @@ import {
 import { useUI } from '@/context/UiContext'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import type { LucideIcon } from 'lucide-react'
 
 export default function Sidebar() {
   const { toggleDna, openMain } = useUI()
   const [isExpanded, setIsExpanded] = useState(false)
   const pathname = usePathname()
 
-  const menuItems = [
-    {
-      icon: <LayoutDashboard />,
-      label: 'Dashboard',
-      href: '/',
-      color: 'text-sky-600',
-    },
-    {
-      icon: <Building2 />,
-      label: 'Tenants',
-      href: '/tenants',
-      color: 'text-violet-600',
-    },
-    {
-      icon: <GitMerge />,
-      label: 'Ingestion',
-      href: '/ingestion',
-      color: 'text-pink-600',
-    },
-    {
-      icon: <BarChart3 />,
-      label: 'Analytics',
-      href: '/analytics',
-      color: 'text-orange-600',
-    },
-    {
-      icon: <Activity />,
-      label: 'Health',
-      href: '/health',
-      color: 'text-emerald-600',
-    },
-    {
-      icon: <FileText />,
-      label: 'Logs',
-      href: '/logs',
-      color: 'text-blue-600',
-    },
-  ]
+
+
+
+  const menuItems: {
+    icon: LucideIcon
+    label: string
+    href: string
+    color: string
+  }[] = [
+      {
+        icon: LayoutDashboard,
+        label: 'Dashboard',
+        href: '/',
+        color: 'text-sky-600',
+      },
+      {
+        icon: Building2,
+        label: 'Tenants',
+        href: '/tenants',
+        color: 'text-violet-600',
+      },
+      {
+        icon: GitMerge,
+        label: 'Ingestion',
+        href: '/ingestion',
+        color: 'text-pink-600',
+      },
+      {
+        icon: BarChart3,
+        label: 'Analytics',
+        href: '/analytics',
+        color: 'text-orange-600',
+      },
+      {
+        icon: Activity,
+        label: 'Health',
+        href: '/health',
+        color: 'text-emerald-600',
+      },
+      {
+        icon: FileText,
+        label: 'Logs',
+        href: '/logs',
+        color: 'text-blue-600',
+      },
+    ]
+
 
   return (
     <aside
@@ -97,7 +107,7 @@ export default function Sidebar() {
       {/* --- Create New --- */}
       <nav className="flex flex-col gap-2 w-full px-3">
         <NavItem
-          icon={<PlusCircle size={24} />}
+          icon={PlusCircle}
           label="Create New"
           isExpanded={isExpanded}
           onClick={openMain}
@@ -149,9 +159,8 @@ export default function Sidebar() {
 /* ----------------------------- */
 /* Nav Item                    */
 /* ----------------------------- */
-
 type NavItemProps = {
-  icon: React.ReactNode
+  icon: LucideIcon
   label: string
   isExpanded: boolean
   onClick?: () => void
@@ -159,7 +168,6 @@ type NavItemProps = {
   active?: boolean
   color?: string
 }
-
 function NavItem({
   icon,
   label,
@@ -169,6 +177,7 @@ function NavItem({
   active = false,
   color = 'text-zinc-900',
 }: NavItemProps) {
+    const Icon = icon
   const content = (
     <div
       className={`flex items-center w-full group rounded-lg transition-all duration-200 ${isExpanded
@@ -186,10 +195,12 @@ function NavItem({
           : 'text-zinc-500 group-hover:text-zinc-900'
           }`}
       >
-        {React.cloneElement(icon as React.ReactElement, {
-          size: 22,
-          strokeWidth: active ? 2.5 : 2,
-        })}
+        <Icon
+          size={22}
+          strokeWidth={active ? 2.5 : 2}
+          className="shrink-0"
+        />
+
       </span>
 
       {/* Label */}

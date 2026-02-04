@@ -10,11 +10,11 @@ import {
 } from 'lucide-react'
 
 import { DataTable } from '@/components/Data/DataTable'
-
+import type { ReactNode } from 'react'
 // ------------------
 // MOCK LOG DATA
 // ------------------
-
+import type { LucideIcon } from 'lucide-react'
 const LOGS = [
   {
     id: 1,
@@ -72,15 +72,15 @@ const LEVEL_COLORS: Record<string, string> = {
   info: 'bg-blue-100 text-blue-700',
   debug: 'bg-zinc-100 text-zinc-700',
 }
-
-const LEVEL_ICONS: Record<string, JSX.Element> = {
-  error: <AlertTriangle className="w-3 h-3" />,
-  warn: <Bug className="w-3 h-3" />,
-  info: <Info className="w-3 h-3" />,
-  debug: <FileText className="w-3 h-3" />,
+const LEVEL_ICONS: Record<string, LucideIcon> = {
+  error: AlertTriangle,
+  warn: Bug,
+  info: Info,
+  debug: FileText,
 }
 
 function LevelBadge({ level }: { level: string }) {
+  const Icon = LEVEL_ICONS[level]
   const color =
     LEVEL_COLORS[level] || 'bg-zinc-100 text-zinc-700'
 
@@ -88,7 +88,7 @@ function LevelBadge({ level }: { level: string }) {
     <span
       className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold ${color}`}
     >
-      {LEVEL_ICONS[level]}
+     <Icon size={22} strokeWidth={2} />
       {level.toUpperCase()}
     </span>
   )
