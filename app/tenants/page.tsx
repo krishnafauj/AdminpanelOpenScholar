@@ -189,7 +189,7 @@ export default function TenantsPage() {
     : 0
 
   return (
-    <main className="flex-1 min-h-screen p-6 bg-dashboard overflow-auto">
+    <main className="flex-1 h-full p-6 bg-dashboard overflow-auto">
       <div className="max-w-7xl mx-auto space-y-6">
 
         {/* HEADER */}

@@ -4,8 +4,6 @@ import React from 'react';
 
 import { ChevronLeft, X, Play, Pause } from 'lucide-react';
 
-import { MUSIC_STYLES } from '@/data';
-
 import { usePlayer } from '@/context/PlayerContext';
 
 import { useUI } from '@/context/UiContext'; // Import UI Context
@@ -26,8 +24,7 @@ const StyleCard = ({ data }: { data: any }) => {
 
   return (
 
-    <div
-      onClick={() => playTrack(data, MUSIC_STYLES)} // PASS MUSIC_STYLES for Queue
+    <div// PASS MUSIC_STYLES for Queue
       className={`group relative w-full h-full flex flex-col p-2 rounded-[20px] cursor-pointer transition-all duration-300 border ${isCurrent ? 'bg-zinc-900 border-transparent ' : 'bg-transparent border-transparent hover:bg-zinc-900/10'}`}
     >
       <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 shadow-lg bg-zinc-800 shrink-0">
